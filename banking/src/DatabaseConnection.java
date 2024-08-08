@@ -1,5 +1,6 @@
 import java.math.BigDecimal;
 import java.sql.*;
+import java.util.Date;
 
 public class DatabaseConnection {
     Connection connection;
@@ -60,8 +61,16 @@ public class DatabaseConnection {
         };
         Account destination = getAccount(cpf.getcpf());
         account.transfer(amount, destination);
+
         updateAccount(account);
         updateAccount(destination);
+    }
+
+    void transaction(Account account, BigDecimal amount, CPF cpf) throws SQLException {
+        Date date = new Date();
+        java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+        String sql = "INSERT INTO transactions (CPFsrc, date,CPFdest, amount) VALUES (?,?,?,?);";
+
     }
 
     void disconnect() throws SQLException {
