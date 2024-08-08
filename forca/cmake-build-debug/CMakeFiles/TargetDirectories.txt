@@ -1,3 +1,0 @@
-/home/edinho/Documentos/forca/cmake-build-debug/CMakeFiles/forca.dir
-/home/edinho/Documentos/forca/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/edinho/Documentos/forca/cmake-build-debug/CMakeFiles/rebuild_cache.dir
