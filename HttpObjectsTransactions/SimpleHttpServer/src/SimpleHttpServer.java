@@ -3,6 +3,7 @@ import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpExchange;
 
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
 
@@ -22,13 +23,14 @@ public class SimpleHttpServer {
     static class Handler implements HttpHandler {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
-            String response = "Hello, World!";
+            Account account = new Account("Edinho");
             System.out.println(exchange.getRequestMethod());
-            exchange.sendResponseHeaders(200, response.getBytes().length);
+            exchange.getResponseHeaders().set("Content-Type", "application/x-java-serialized-object");
+            exchange.sendResponseHeaders(200, 0);
 
-            OutputStream os = exchange.getResponseBody();
-            os.write(response.getBytes());
-            os.close();
+            ObjectOutputStream oos = new ObjectOutputStream(exchange.getResponseBody());
+            oos.writeObject(account);
+            exchange.close();
         }
     }
 }
