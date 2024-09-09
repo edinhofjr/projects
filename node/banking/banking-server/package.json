@@ -1,0 +1,15 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "http server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "edinho",
+  "license": "ISC",
+  "dependencies": {
+    "@mysql/xdevapi": "8.0.35",
+    "parsimmon": "^1.18.1"
+  }
+}
