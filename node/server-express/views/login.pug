@@ -1,0 +1,21 @@
+doctype html
+head
+    title="login"
+body
+    div(class="card")
+        form(action="/login" method="POST" id="loginForm")
+            label(for="user")
+            input(type="text" id="user" placeholder="Insira seu usuario.")
+            label(for="password")
+            input(type="password" id="password" placeholder="Insira sua senha")
+            input(type="submit" id="login")
+
+        form(action="/login" method="POST" id="registerForm")
+            label(for="registeruser")
+            input(type="text" id="registeruser" placeholder="Insira seu usuario.")
+            label(for="registerpassword")
+            input(type="password" id="registerpassword" placeholder="Insira sua senha")
+            input(type="submit" id="register")
+
+    script(src="/javascripts/login.js")
+
