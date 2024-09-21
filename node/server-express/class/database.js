@@ -16,9 +16,17 @@ class database {
                     schema: "banking"
                 }
             )
-            console.log("Connected");
+            console.log("Connected to database.");
         } catch (error) {
-            console.error(error)
+            if (Array.isArray(error.errors)) {
+                error.errors.forEach(err => {
+                    switch (err.code) {
+                        case 'ECONNREFUSED':
+                            console.log("Conexão recusada, servidor pode estar offline!")
+                            return;
+                    }
+                })
+            }
         }
     }
 
